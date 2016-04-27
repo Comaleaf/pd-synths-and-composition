@@ -1,0 +1,19 @@
+#N canvas 1322 327 317 217 10;
+#X obj 3 -403 cnv 15 300 150 empty empty Modulator 20 12 0 14 -261234
+-66577 0;
+#X obj 15 -428 inlet pitch;
+#X obj 15 -321 osc~;
+#X obj 15 -240 outlet~;
+#X obj 15 -294 *~;
+#X obj 94 -428 inlet offset;
+#X obj 177 -428 inlet~ depth;
+#X obj 15 -369 +;
+#X obj 15 -344 mtof;
+#X connect 1 0 7 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 5 0 7 1;
+#X connect 6 0 4 1;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X coords 0 217 1 216 300 300 0;
