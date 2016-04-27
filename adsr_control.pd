@@ -1,53 +1,64 @@
-#N canvas 775 595 780 412 10;
-#X obj 372 -6 cnv 15 400 400 empty empty Envelope_Graph_Plotter 20
+#N canvas 703 348 704 495 10;
+#X obj 312 84 cnv 15 380 400 empty empty Envelope_Graph_Plotter 20
 12 0 14 -262130 -66577 0;
-#X obj 395 361 tabwrite \$0-envelope;
-#X obj 409 233 expr ($f1+$f2+$f3)/0.75;
-#X obj 395 294 expr if($f5 < $f1 \, $f5/$f1 \, if($f5 < ($f1+$f2) \,
+#X obj 325 451 tabwrite \$0-envelope;
+#X obj 339 323 expr ($f1+$f2+$f3)/0.75;
+#X obj 325 384 expr if($f5 < $f1 \, $f5/$f1 \, if($f5 < ($f1+$f2) \,
 1-(1-$f3)*(($f5-$f1)/$f2) \, if($f5 < ($f1+$f2+(0.25*($f1+$f2+$f4)/0.75))
 \, $f3 \, $f3 * (1 - ($f5 - ($f1+$f2+(0.25*($f1+$f2+$f4)/0.75)))/$f4)
 ) ) );
-#X obj 544 171 f;
-#X obj 570 247 f;
-#X obj 476 172 f;
-#X obj 559 150 r \$0-r;
-#X obj 585 201 r \$0-s;
-#X obj 491 149 r \$0-d;
-#X obj 585 223 / 100;
-#X obj 637 81 line 0 1;
-#X msg 637 19 set 0;
-#X obj 409 259 expr ($f2/50)*$f1;
-#X msg 650 59 50 50;
-#X obj 650 41 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 169 -6 cnv 15 200 400 empty empty Pipe_to_Outlets 20 12 0 14
--204786 -66577 0;
-#X obj 186 183 outlet;
-#X obj 186 34 r \$0-a;
-#X obj 209 56 r \$0-d;
-#X obj 232 78 r \$0-s;
-#X obj 255 100 r \$0-r;
-#X obj 637 105 t b b b b f f;
-#X obj 424 149 r \$0-a;
-#X obj 409 171 f;
-#X obj 186 158 pack f f f f;
-#X obj 193 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 474 261 f;
+#X obj 500 337 f;
+#X obj 406 262 f;
+#X obj 489 240 r \$0-r;
+#X obj 515 291 r \$0-s;
+#X obj 421 239 r \$0-d;
+#X obj 515 313 / 100;
+#X obj 567 171 line 0 1;
+#X msg 567 109 set 0;
+#X obj 339 349 expr ($f2/50)*$f1;
+#X msg 580 149 50 50;
+#X obj 580 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 232 122 / 100;
-#X obj 3 3 cnv 15 160 120 empty empty ADSR 65 8 0 12 -99865 -262144
+#X obj 170 286 cnv 15 140 200 empty empty Pipe_to_Outlets 20 12 0 14
+-204786 -66577 0;
+#X obj 183 461 outlet;
+#X obj 183 312 r \$0-a;
+#X obj 206 334 r \$0-d;
+#X obj 229 356 r \$0-s;
+#X obj 252 378 r \$0-r;
+#X obj 567 195 t b b b b f f;
+#X obj 354 239 r \$0-a;
+#X obj 339 261 f;
+#X obj 183 436 pack f f f f;
+#X obj 190 412 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 229 400 / 100;
+#X obj 3 253 cnv 15 160 120 empty empty ADSR 65 8 0 12 -99865 -262144
 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-envelope 50 float 0;
 #X coords 0 1 49 0 150 80 2 0 0;
-#X restore 8 39 graph;
-#X obj 8 39 cnv 15 150 80 empty empty empty 20 12 0 14 -228856 -66577
+#X restore 8 289 graph;
+#X obj 8 289 cnv 15 150 80 empty empty empty 20 12 0 14 -228856 -66577
 0;
-#X obj 3 16 cnv 15 160 20 empty empty empty 65 8 0 12 -99865 -262144
+#X obj 170 84 cnv 15 140 200 empty empty Load_Defaults 20 12 0 14 -261682
+-66577 0;
+#X obj -2 -6 cnv 15 700 60 empty empty adsr_control 20 12 0 14 -233017
+-66577 0;
+#X text 17 15 takes ADSR envelope parameters and packs it into an output
+for the adsr~ object to process - also draws a pretty graph;
+#X obj 182 114 inlet;
+#X obj 182 173 route load;
+#X obj 182 203 unpack f f f f;
+#X obj 229 114 r clear;
+#X obj 3 266 cnv 15 160 20 empty empty empty 65 8 0 12 -99865 -262144
 0;
-#X floatatom 16 20 4 0 9999 0 A - #0-a;
-#X floatatom 55 20 4 0 9999 0 D - #0-d;
-#X floatatom 94 20 4 0 100 0 S - #0-s;
-#X floatatom 133 20 4 0 9999 0 R - #0-r;
+#X floatatom 16 270 4 0 9999 0 A - #0-a;
+#X floatatom 55 270 4 0 9999 0 D - #0-d;
+#X floatatom 94 270 4 0 100 0 S - #0-s;
+#X floatatom 133 270 4 0 9999 0 R - #0-r;
+#X msg 229 142 load 100 50 80 100;
 #X connect 2 0 13 0;
 #X connect 3 0 1 0;
 #X connect 4 0 2 2;
@@ -88,4 +99,12 @@
 #X connect 26 0 25 0;
 #X connect 27 0 25 2;
 #X connect 27 0 26 0;
-#X coords 0 -1 1 1 166 126 2 0 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 36 0 39 0;
+#X connect 36 1 40 0;
+#X connect 36 2 41 0;
+#X connect 36 3 42 0;
+#X connect 37 0 43 0;
+#X connect 43 0 35 0;
+#X coords 0 -1 1 1 166 126 2 0 250;

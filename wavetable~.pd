@@ -1,16 +1,16 @@
-#N canvas 0 22 1115 505 10;
-#X obj 367 48 inlet;
-#X text 365 28 note#;
-#X text 411 29 velocity;
-#X obj 367 121 pack 0 0 0;
-#X obj 367 150 route 1 2 3 4;
-#X obj 412 48 inlet;
-#X obj 407 430 outlet~;
-#X obj 535 108 osc~;
-#X obj 535 135 expr~ ($v1+1)/2;
-#X obj 367 82 poly 4 0;
-#X obj 157 295 adsr_control;
-#X obj 16 29 cnv 15 305 260 empty empty Wavetables 20 12 0 14 -262130
+#N canvas 146 101 657 531 10;
+#X obj 324 91 inlet;
+#X text 322 71 note#;
+#X text 425 117 velocity;
+#X obj 381 201 pack 0 0 0;
+#X obj 381 230 route 1 2 3 4;
+#X obj 426 136 inlet;
+#X obj 450 500 outlet~;
+#X obj 549 188 osc~;
+#X obj 549 215 expr~ ($v1+1)/2;
+#X obj 381 162 poly 4 0;
+#X obj 157 395 adsr_control;
+#X obj 16 129 cnv 15 305 260 empty empty Wavetables 20 12 0 14 -262130
 -66577 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-nw 254 float 5;
@@ -50,7 +50,7 @@
 -0.574465 -0.574465 -0.574465 -0.574465 -0.574465 -0.574465 -0.431608
 ;
 #X coords 0 1 255 -1 140 100 1 0 0;
-#X restore 23 65 graph;
+#X restore 23 165 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-ne 256 float 5;
 #A 0 0.000745952 -0.00282547 -0.00639689 -0.00996831 -0.0135397 -0.0171112
@@ -91,7 +91,7 @@
 -0.520787 -0.520787 -0.508787 -0.496786 -0.484786 -0.472786 -0.460786
 ;
 #X coords 0 1 256 -1 140 100 1 0 0;
-#X restore 174 65 graph;
+#X restore 174 165 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-sw 256 float 5;
 #A 0 -0.394804 -0.451946 -0.451946 -0.451946 -0.449089 -0.446232 -0.443375
@@ -129,7 +129,7 @@
 -0.198103 -0.190411 -0.182719 -0.175026 -0.167334 -0.159642 -0.15195
 -0.134093 -0.116236 -0.0983788 -0.0805218;
 #X coords 0 1 255 -1 140 100 1 0 0;
-#X restore 23 180 graph;
+#X restore 23 280 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-se 256 float 5;
 #A 0 -0.759234 -0.759234 -0.759234 -0.759234 -0.759234 -0.759234 -0.756377
@@ -168,23 +168,34 @@
 -0.0504756 -0.0719039 -0.107618 -0.143332 -0.186188 -0.300473 -0.500471
 -0.507614 -0.72904 -0.757611 -0.13853 -0.127816;
 #X coords 0 1 256 -1 140 100 1 0 0;
-#X restore 174 180 graph;
-#X obj 424 200 wavetable_voice~ \$0;
-#X obj 16 295 cnv 15 135 46 empty empty East-West_LFO 20 12 0 12 -261682
+#X restore 174 280 graph;
+#X obj 438 280 wavetable_voice~ \$0;
+#X obj 16 395 cnv 15 135 46 empty empty East-West_LFO 20 12 0 12 -261682
 -66577 0;
-#X obj 25 319 hsl 80 16 0.4 40 1 0 \$0-lfo empty empty -30 8 0 12 -262144
--1 -1 800 1;
-#X floatatom 113 319 5 0 0 0 - #0-lfo -;
-#X obj 535 83 r \$0-lfo;
-#X obj 436 392 *~;
-#X obj 18 379 knob 40 40 0 1 0 0 \$0-volume empty empty 0 -8 0 8 -262144
--4034 -13381 100 1;
-#X obj 404 231 wavetable_voice~ \$0;
-#X obj 385 260 wavetable_voice~ \$0;
-#X obj 367 290 wavetable_voice~ \$0;
-#X obj 438 362 catch~ \$0-summing_bus;
-#X obj 504 376 r \$0-volume;
-#X connect 0 0 9 0;
+#X obj 25 419 hsl 80 16 0.4 40 1 0 \$0-lfo empty empty -30 8 0 12 -262144
+-1 -1 383 1;
+#X floatatom 113 419 5 0 0 0 - #0-lfo -;
+#X obj 549 163 r \$0-lfo;
+#X obj 450 472 *~;
+#X obj 18 479 knob 40 40 0 1 0 0 \$0-volume empty empty 0 -8 0 8 -262144
+-4034 -13381 1950 1;
+#X obj 418 311 wavetable_voice~ \$0;
+#X obj 399 340 wavetable_voice~ \$0;
+#X obj 381 370 wavetable_voice~ \$0;
+#X obj 450 417 catch~ \$0-summing_bus;
+#X obj 465 443 r \$0-volume;
+#X obj -4 6 cnv 15 650 60 empty empty wavetable~ 20 12 0 14 -233017
+-66577 0;
+#X text 14 27 a wavetable synthesiser with four tables - an LFO controls
+panning between east to west \, and velocity/ADSR from north-south
+;
+#X obj 324 117 route load;
+#X obj 22 76 unpack f f f f f f;
+#X obj 71 102 pack f f f f;
+#X msg 130 125 load \$1 \$2 \$3 \$4;
+#X obj 376 74 r clear;
+#X msg 376 93 load 0.5 0.5;
+#X connect 0 0 30 0;
 #X connect 3 0 4 0;
 #X connect 4 0 25 0;
 #X connect 4 1 24 0;
@@ -207,4 +218,16 @@
 #X connect 21 0 6 0;
 #X connect 26 0 21 0;
 #X connect 27 0 21 1;
-#X coords 0 -1 1 1 318 416 1 10 10;
+#X connect 30 0 31 0;
+#X connect 30 1 9 0;
+#X connect 31 0 18 0;
+#X connect 31 1 22 0;
+#X connect 31 2 32 0;
+#X connect 31 3 32 1;
+#X connect 31 4 32 2;
+#X connect 31 5 32 3;
+#X connect 32 0 33 0;
+#X connect 33 0 10 0;
+#X connect 34 0 35 0;
+#X connect 35 0 30 0;
+#X coords 0 -1 1 1 318 416 1 10 110;

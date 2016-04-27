@@ -1,0 +1,70 @@
+#N canvas 723 251 603 330 10;
+#X obj 105 81 cnv 15 140 86 empty empty Parameters 20 12 0 12 -233017
+-66577 0;
+#X msg 153 182 roomsize \$1;
+#X msg 153 204 damping \$1;
+#X msg 153 226 width \$1;
+#X msg 153 248 wet \$1;
+#X msg 153 270 dry \$1;
+#X msg 153 292 bypass \$1;
+#X obj 111 104 hsl 128 10 0 1 0 0 empty empty roomsize 40 4 0 9 -261234
+-1 -1 12700 1;
+#X obj 111 116 hsl 128 10 0 1 0 0 empty empty damping 44 4 0 9 -261682
+-1 -1 12065 1;
+#X obj 111 128 hsl 128 10 0 1 0 0 empty empty width 51 4 0 9 -262130
+-1 -1 11430 1;
+#X obj 111 140 hsl 128 10 0 1 0 0 empty empty wet 56 4 0 9 -204786
+-1 -1 11430 1;
+#X obj 111 152 hsl 128 10 0 1 0 0 empty empty dry 55 4 0 9 -204800
+-1 -1 3810 1;
+#X obj 225 65 tgl 20 0 empty empty skip -28 9 0 10 -261234 -262144
+-261234 0 1;
+#X obj 288 147 freeverb~;
+#X obj 288 181 outlet~;
+#X obj 339 181 outlet~;
+#X obj 288 59 inlet~;
+#X obj 339 58 inlet~;
+#X obj 20 83 loadbang;
+#X obj 53 103 1;
+#X obj 53 122 0.95;
+#X obj 53 141 0.9;
+#X obj 53 160 0.9;
+#X obj 53 179 0.3;
+#X text 232 225 stereo width of reverb (default: 1);
+#X text 231 247 level of reverbed signal \, between 0 and 1 (default:
+0.3);
+#X text 231 270 level of unprocessed signal \, between 0 and 1 (default:
+0);
+#X text 233 291 bypass the reverb processing \, using a 1 or 0;
+#X obj 20 60 r clear;
+#X obj 1 1 cnv 15 600 40 empty empty Reverb~ 20 12 0 14 -233017 -66577
+0;
+#X text 21 21 stereo reverb using freeverb~ and adding some controls
+;
+#X connect 1 0 13 0;
+#X connect 2 0 13 0;
+#X connect 3 0 13 0;
+#X connect 5 0 13 0;
+#X connect 6 0 13 0;
+#X connect 7 0 1 0;
+#X connect 8 0 2 0;
+#X connect 9 0 3 0;
+#X connect 10 0 4 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 0;
+#X connect 13 0 14 0;
+#X connect 13 1 15 0;
+#X connect 16 0 13 0;
+#X connect 17 0 13 1;
+#X connect 18 0 19 0;
+#X connect 18 0 20 0;
+#X connect 18 0 21 0;
+#X connect 18 0 22 0;
+#X connect 18 0 23 0;
+#X connect 19 0 7 0;
+#X connect 20 0 8 0;
+#X connect 21 0 9 0;
+#X connect 22 0 10 0;
+#X connect 23 0 11 0;
+#X connect 28 0 18 0;
+#X coords 0 -1 1 1 150 112 1 100 60;
